@@ -1,2 +1,1 @@
 # manga-shop
-# manga-shop
