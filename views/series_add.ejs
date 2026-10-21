@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/series_add" method="POST">
+      <label for="seriesTitle">Title: </label>
+      <input type="text" name="seriesTitle" id="seriesTitle" /><br />
+      <label for="seriesDescription">Description: </label>
+      <input
+        type="text"
+        name="seriesDescription"
+        id="seriesDescription"
+      /><br />
+      <label for="categoryId">Category</label>
+      <select id="categoryId" name="categoryId" required>
+        <option value="">Choose a category</option>
+        <% categories.forEach( function (category) { %>
+         <option value="<%= category.id %>"><%= category.name %> </option>
+        <% }); %> 
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
