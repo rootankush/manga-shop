@@ -8,18 +8,19 @@
   </head>
   <body>
     <%- include('../views/partials/header.ejs') %>
-    <main>
+    <div class="publishersMain">
+    <h1 class="pageHeading">Publishers</h1>
       <% for(const publisher of publishers) { %>
-        <li>
+        <li class="publishersList">
          <h2>
-            <%= publisher.name %>
+            Name: <%= publisher.publisher_name %>
          </h2>
          <h3>
-           <%= publisher.description %>
+           Description: <%= publisher.description %>
          </h3>
         </li>
         <% } %> 
-    </main>
+    </div>
     <%- include('../views/partials/footer.ejs') %>
   </body>
 </html>
