@@ -6,6 +6,15 @@ async function getSeries(req, res) {
 	res.render("../views/series.ejs", { series: series });
 }
 
+async function getSerieById(req, res) {
+	const id = req.params.id;
+	const serie = await db.getSerieById(id);
+	if (!serie) {
+		return res.status(404).render("../views/404.ejs");
+	}
+	res.render("../views/series_details.ejs", { serie: serie });
+}
+
 async function insertSeriesGet(req, res) {
 	const categories = await db.getAllCategories();
 	const publishers = await db.getAllPublishers();
@@ -31,6 +40,7 @@ async function deleteSeriesGet(req, res) {
 
 module.exports = {
 	getSeries,
+	getSerieById,
 	insertSeriesGet,
 	insertSeriesPost,
 	deleteSeriesGet,
