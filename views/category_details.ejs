@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('../views/partials/header.ejs') %>
+    <div class="serieMain">
+    <h1 class="pageHeading"><%= category.category_name %></h1>
+      <li class="serieList">
+        <% for(const serie of series ) { %> 
+            <h1><%= serie.title %> </h1>
+            <h3><%= serie.description %></h3>
+            <hr>
+        <% } %> 
+        <a class="cardBtn" href="/categories">Back</a>
+      </li>
+    </div>
+    <%- include('../views/partials/footer.ejs') %>
+  </body>
+</html>
