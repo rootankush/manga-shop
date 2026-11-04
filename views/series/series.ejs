@@ -8,7 +8,8 @@
   </head>
   <body>
     <%- include('../../views/partials/header.ejs') %>
-    <h1 class="pageHeading">Series</h1>
+    <h1 class="pageHeading">Series</h1><br>
+    <a class="cardBtn" href="/series/add">Add</a>
     <div class="seriesMain">
       <% for(const serie of series) { %>
         <li class="seriesList">

@@ -12,9 +12,9 @@
     <h1 class="pageHeading"><%= publisher.publisher_name %></h1>
       <li class="serieList">
         <% for(const serie of series ) { %> 
+          <hr>
             <h1><%= serie.title %> </h1>
             <h3><%= serie.description %></h3>
-            <hr>
         <% } %> 
         <a class="cardBtn" href="/publishers">Back</a>
       </li>

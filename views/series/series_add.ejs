@@ -3,27 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../public/styles/style.css">
     <title>Document</title>
   </head>
   <body>
+    <%- include('../../views/partials/header.ejs') %>
+    <form class="formMain" action="/series" method="POST">
     <h1><%= title %></h1>
-    <form action="/series_add" method="POST">
-      <label for="seriesTitle">Title: </label>
-      <input type="text" name="seriesTitle" id="seriesTitle" /><br />
+      <label for="seriesTitle">Title: </label> 
+      <input type="text" name="title" id="seriesTitle" required/><br />
       <label for="seriesDescription">Description: </label>
       <input
         type="text"
-        name="seriesDescription"
+        name="description"
         id="seriesDescription"
+        required
       /><br />
-      <label for="categoryId">Category</label>
+      <label for="categoryId">Category:</label>
       <select id="categoryId" name="categoryId" required>
         <option value="">Choose a category</option>
         <% categories.forEach( function (category) { %>
-         <option value="<%= category.id %>"><%= category.name %> </option>
+         <option value="<%= category.id %>"><%= category.category_name %> </option>
+        <% }); %> 
+      </select>
+      <label for="publisherId">Publisher:</label>
+      <select id="publisherId" name="publisherId" required>
+        <option value="">Choose a publisher</option>
+        <% publishers.forEach( function (publisher) { %>
+         <option value="<%= publisher.id %>"><%= publisher.publisher_name %> </option>
         <% }); %> 
       </select>
       <button type="submit">Submit</button>
     </form>
+    <%- include('../../views/partials/footer.ejs') %>
   </body>
-</html>
+
