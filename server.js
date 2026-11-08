@@ -3,9 +3,9 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const port = process.env.PORT || 3000;
-const categoriesController = require("../manga-shop/controllers/categoriesController");
-const publishersController = require("../manga-shop/controllers/publishersController");
-const seriesController = require("../manga-shop/controllers/seriesController");
+const categoriesController = require("./controllers/categoriesController");
+const publishersController = require("./controllers/publishersController");
+const seriesController = require("./controllers/seriesController");
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
