@@ -2,7 +2,7 @@ const db = require("../db/queries");
 
 async function getPublisher(req, res) {
 	const publishers = await db.getAllPublishers();
-	res.render("../views/publisher.ejs", { publishers: publishers });
+	res.render("../views/publisher/publisher.ejs", { publishers: publishers });
 }
 
 async function getSeriesByPublisherId(req, res) {
@@ -12,7 +12,7 @@ async function getSeriesByPublisherId(req, res) {
 		return res.status(404).render("../views/404.ejs");
 	}
 	const series = await db.getSeriesByPublisherId(id);
-	res.render("../views/publisher_details.ejs", { publisher, series });
+	res.render("../views/publisher/publisher_details.ejs", { publisher, series });
 }
 
 module.exports = {

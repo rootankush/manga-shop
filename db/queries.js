@@ -9,7 +9,7 @@ async function getAllSeries() {
 
 async function getSerieById(id) {
 	const { rows } = await pool.query(
-		"SELECT series.id, series.title, series.description, categories.category_name, publishers.publisher_name FROM series JOIN categories ON categories.id = series.category_id JOIN publishers ON publishers.id = series.publisher_id WHERE series.id = ($1)",
+		"SELECT series.id, series.title, series.description, series.category_id, series.publisher_id, categories.category_name, publishers.publisher_name FROM series JOIN categories ON categories.id = series.category_id JOIN publishers ON publishers.id = series.publisher_id WHERE series.id = ($1)",
 		[id],
 	);
 	return rows[0];
@@ -21,14 +21,38 @@ async function insertSeries(title, description, categoryId, publisherId) {
 		[title, description, categoryId, publisherId],
 	);
 }
+async function editSeries(id, title, description, categoryId, publisherId) {
+	const { rowCount } = await pool.query(
+		"UPDATE series SET title = $1, description = $2, category_id = $3, publisher_id = $4 WHERE id = $5",
+		[title, description, categoryId, publisherId, id],
+	);
+	return rowCount;
+}
 
-async function deleteSeries(title) {
-	await pool.query("DELETE * FROM series WHERE title LIKE ($1)", [title]);
+async function deleteSeries(id) {
+	const { rowCount } = await pool.query("DELETE FROM series WHERE id = $1", [
+		id,
+	]);
+	return rowCount;
+}
+
+async function insertCategory(category_name, description) {
+	await pool.query(
+		"INSERT INTO categories (category_name, description) VALUES ($1, $2)",
+		[category_name, description],
+	);
+}
+
+async function insertPublisher(publisher_name, description) {
+	await pool.query(
+		"INSERT INTO publishers (publisher_name, description) VALUES ($1, $2)",
+		[publisher_name, description],
+	);
 }
 
 async function getAllPublishers() {
 	const { rows } = await pool.query(
-		"SELECT publishers.publisher_name, publishers.description FROM publishers",
+		"SELECT publishers.id, publishers.publisher_name, publishers.description FROM publishers",
 	);
 	return rows;
 }
@@ -51,7 +75,7 @@ async function getCategoryById(id) {
 
 async function getAllCategories() {
 	const { rows } = await pool.query(
-		"SELECT categories.category_name, categories.description FROM categories",
+		"SELECT categories.id, categories.category_name, categories.description FROM categories",
 	);
 	return rows;
 }
@@ -76,6 +100,9 @@ module.exports = {
 	getAllSeries,
 	getSerieById,
 	insertSeries,
+	insertCategory,
+	insertPublisher,
+	editSeries,
 	deleteSeries,
 	getCategoryById,
 	getPublisherById,

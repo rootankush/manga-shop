@@ -1,0 +1,216 @@
+:root {
+	--bg-color: #1a1a1a;
+	--secondary-color: #c4ff4d;
+	--accent-color-1: #ba8cff;
+	--accent-color-2: #4d4d4d;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: var(--bg-color);
+	width: auto;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	background-color: var(--bg-color);
+	color: white;
+	height: 10vh;
+	font-size: 1.4rem;
+	justify-content: space-between;
+	padding: 0 1rem;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+h1,
+h2 {
+	font-weight: bold;
+}
+
+h3 {
+	color: var(--secondary-color);
+}
+
+.headerBtn {
+	color: white;
+	text-decoration: none;
+}
+
+.pageHeading {
+	color: var(--secondary-color);
+	margin: 0 1rem;
+}
+
+.navBtn {
+	background-color: var(--secondary-color);
+	color: var(--bg-color);
+	padding: 5px 10px;
+	text-decoration: none;
+	font-size: 1.4rem;
+	border: none;
+}
+
+.navBtn:hover {
+	background-color: var(--accent-color-1);
+	color: var(--bg-color);
+	border-radius: 2rem;
+	border: 1px solid black;
+}
+
+.indexMain {
+	display: flex;
+	height: 80vh;
+	justify-content: center;
+	align-items: center;
+}
+
+.indexBtn {
+	background-color: var(--secondary-color);
+	color: var(--bg-color);
+	padding: 15px 25px;
+	text-decoration: none;
+	font-size: 2rem;
+}
+
+.indexBtn:hover {
+	background-color: var(--accent-color-1);
+	color: var(--bg-color);
+}
+
+.btnBar {
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	gap: 8rem;
+}
+
+.seriesMain {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	height: auto;
+}
+
+.seriesList {
+	background-color: var(--accent-color-2);
+	color: var(--secondary-color);
+	padding: 1rem;
+	margin: 1rem 1rem;
+	list-style: none;
+}
+
+.textField {
+	width: 30vw;
+	height: 5vh;
+	padding: 12px 16px;
+	border: 2px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+	margin-bottom: 15px;
+	box-sizing: border-box;
+}
+
+.serieMain {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 80vh;
+}
+
+.serieList {
+	background-color: var(--accent-color-2);
+	color: var(--secondary-color);
+	padding: 1rem;
+	margin: 1rem 1rem;
+	list-style: none;
+}
+
+hr {
+	margin: 0.4rem;
+}
+
+.cardBtn {
+	background-color: var(--accent-color-1);
+	color: var(--bg-color);
+	padding: 4px 8px;
+	border: none;
+	border-radius: 3px;
+}
+
+.cardBtn:hover {
+	background-color: var(--bg-color);
+	color: var(--secondary-color);
+}
+
+.publishersMain {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 80vh;
+	width: 100%;
+}
+
+.publishersList {
+	background-color: var(--accent-color-2);
+	color: var(--secondary-color);
+	width: fit-content;
+	padding: 1rem;
+	margin: 1rem 1rem;
+	list-style: none;
+}
+
+.categoriesMain {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 80vh;
+}
+
+.categoriesList {
+	background-color: var(--accent-color-2);
+	color: var(--secondary-color);
+	width: fit-content;
+	padding: 1rem;
+	margin: 1rem 1rem;
+	list-style: none;
+}
+
+.errorMain {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 80vh;
+}
+
+.errorText {
+	text-align: center;
+	color: var(--secondary-color);
+}
+
+.formMain {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--accent-color-1);
+	height: 80vh;
+}
+
+footer {
+	display: flex;
+	background-color: var(--bg-color);
+	justify-content: center;
+	color: white;
+	align-items: center;
+	position: sticky;
+	height: 5vh;
+	bottom: 0;
+	z-index: 10;
+}

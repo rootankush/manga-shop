@@ -26,7 +26,8 @@
           <%= serie.publisher_name %>
         </h3>
           <a class="cardBtn" href="/series/<%= serie.id %>">Detail</a>
-          <a class="cardBtn">Delete</a>
+          <a class="cardBtn" href="/series/<%= serie.id %>/edit">Edit</a>
+          <a class="cardBtn" href="/series/<%= serie.id %>/delete">Delete</a>
       </li>
      <% } %> 
     </div>

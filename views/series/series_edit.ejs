@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../public/styles/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <%- include('../../views/partials/header.ejs') %>
+  <form class="formMain" action="/series" method="POST">
+    <h1><%= title %></h1>
+    <label for="seriesTitle">Title: </label>
+    <input class="textField" type="text" name="title" id="seriesTitle" value="<%= values.title %>" required /><br />
+    <label for="seriesDescription">Description: </label>
+    <input class="textField" type="text" name="description" id="seriesDescription" required value="<%= values.description %> " /><br />
+    <label for="categoryId">Category:</label>
+    <select class="textField" id="categoryId" name="categoryId" required>
+      <option value="">Choose a category</option>
+      <% categories.forEach(function (category) { %>
+      <option value="<%= category.id %>" <%= String(category.id) === String(values.categoryId) ? "selected" : "" %>>
+        <%= category.category_name %>
+      </option>
+      <% }); %>
+    </select>
+
+    <label for="publisherId">Publisher:</label>
+    <select class="textField" id="publisherId" name="publisherId" required>
+      <option value="">Choose a publisher</option>
+      <% publishers.forEach(function (publisher) { %>
+      <option value="<%= publisher.id %>" <%= String(publisher.id) === String(values.publisherId) ? "selected" : "" %>>
+        <%= publisher.publisher_name %>
+      </option>
+      <% }); %>
+    </select>
+    <button class="navBtn" type="submit">Submit</button>
+  </form>
+  <%- include('../../views/partials/footer.ejs') %>
+</body>
